@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'redux-form';
+import {reduxForm} from 'redux-form';
 
 import Checkbox from 'material-ui/Checkbox';
 
