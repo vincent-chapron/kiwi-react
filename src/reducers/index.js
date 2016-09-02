@@ -4,6 +4,7 @@ import {reducer as form} from 'redux-form';
 import authentication from './authentication';
 import beacons from './beacons';
 import courses from './courses';
+import notes from './notes';
 import promotions from './promotions';
 import students from './students';
 import years from './years';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     authentication,
     beacons,
     courses,
+    notes,
     promotions,
     students,
     years

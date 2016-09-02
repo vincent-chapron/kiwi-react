@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
 import {ListItem} from 'material-ui/List';
@@ -12,7 +13,9 @@ class CourseListItem extends Component {
         if (!course) return null;
 
         return (
-            <ListItem primaryText={course.name}/>
+            <ListItem
+                containerElement={<Link to={`/courses/${course.id}`}/>}
+                primaryText={course.name}/>
         );
     }
 }
