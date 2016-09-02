@@ -2,6 +2,7 @@ import {
     SET_PROMOTION,
     GET_PROMOTION_API,
     GET_PROMOTIONS_API,
+    GET_PROMOTION_STATISTICS_API,
     POST_COURSE_API,
     PUT_BEACON_IN_PROMOTION_API,
     POST_STUDENT_API
@@ -10,7 +11,8 @@ import {
 const INITIALE_STATE = {
     current: null,
     all: [],
-    selected: null
+    selected: null,
+    statistics: {},
 };
 
 export default function (state = INITIALE_STATE, action) {
@@ -19,6 +21,8 @@ export default function (state = INITIALE_STATE, action) {
             return {...state, current: action.payload}
         case GET_PROMOTION_API:
             return {...state, selected: action.payload}
+        case GET_PROMOTION_STATISTICS_API:
+            return {...state, statistics: action.payload}
         case GET_PROMOTIONS_API:
             return {...state, all: action.payload}
         case POST_COURSE_API:
