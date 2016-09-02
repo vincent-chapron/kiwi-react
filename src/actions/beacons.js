@@ -1,4 +1,5 @@
 import request from 'request';
+import {AuthenticatedRequest} from '../api/request';
 
 import {
     GET_BEACONS_API,
@@ -7,11 +8,8 @@ import {
 } from './types';
 
 export function getBeaconsAPI() {
-    const rq = new Promise((done, reject) => {
-        request.get(`http://localhost:8000/beacons`, (error, response, body) => {
-            if (error) return reject(error);
-            done(JSON.parse(body));
-        });
+    const rq = AuthenticatedRequest({
+        url: `http://localhost:8000/beacons`
     });
 
     return {
@@ -21,18 +19,10 @@ export function getBeaconsAPI() {
 }
 
 export function postBeaconAPI({name, secureUuid}) {
-    const options = {
-        method: 'post',
-        url: 'http://localhost:8000/beacons',
-        body: {name, secureUuid},
-        json: true
-    }
-
-    const rq = new Promise((done, reject) => {
-        request(options, (error, response, body) => {
-            if (error) return reject(error);
-            done(body);
-        });
+    const rq = AuthenticatedRequest({
+        method: 'POST',
+        url: `http://localhost:8000/beacons`,
+        body: {name, secureUuid}
     });
 
     return {
@@ -42,17 +32,10 @@ export function postBeaconAPI({name, secureUuid}) {
 }
 
 export function patchBeaconInPromotionAPI(promotion, beacon) {
-    const options = {
+    const rq = AuthenticatedRequest({
         method: 'PATCH',
         url: `http://localhost:8000/promotions/${promotion}/beacons/${beacon}`,
-        json: true
-    }
-
-    const rq = new Promise((done, reject) => {
-        request(options, (error, response, body) => {
-            if (error) return reject(error);
-            done(body);
-        });
+        body: {name, secureUuid}
     });
 
     return {

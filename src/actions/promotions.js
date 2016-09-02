@@ -1,4 +1,5 @@
 import request from 'request';
+import {AuthenticatedRequest} from '../api/request';
 
 import {
     SET_PROMOTION,
@@ -14,11 +15,8 @@ export function setPromotion(promotion) {
 }
 
 export function getPromotionsAPI() {
-    const rq = new Promise((done, reject) => {
-        request.get("http://localhost:8000/promotions", (error, response, body) => {
-            if (error) return reject(error);
-            done(JSON.parse(body));
-        });
+    const rq = AuthenticatedRequest({
+        url: "http://localhost:8000/promotions"
     });
 
     return {
@@ -28,11 +26,8 @@ export function getPromotionsAPI() {
 }
 
 export function getPromotionAPI(uuid) {
-    const rq = new Promise((done, reject) => {
-        request.get("http://localhost:8000/promotions/" + uuid, (error, response, body) => {
-            if (error) return reject(error);
-            done(JSON.parse(body));
-        });
+    const rq = AuthenticatedRequest({
+        url: `http://localhost:8000/promotions/${uuid}`
     });
 
     return {

@@ -1,4 +1,5 @@
 import request from 'request';
+import {AuthenticatedRequest} from '../api/request';
 
 import {
     GET_STUDENT_API,
@@ -6,11 +7,8 @@ import {
 } from './types';
 
 export function getStudentAPI(uuid) {
-    const rq = new Promise((done, reject) => {
-        request.get("http://localhost:8000/students/" + uuid, (error, response, body) => {
-            if (error) return reject(error);
-            done(JSON.parse(body));
-        });
+    const rq = AuthenticatedRequest({
+        url: `http://localhost:8000/students/${uuid}`
     });
 
     return {
@@ -20,18 +18,10 @@ export function getStudentAPI(uuid) {
 }
 
 export function postStudentAPI({forenames, lastname, email, phoneMobile, promotion}) {
-    const options = {
+    const rq = AuthenticatedRequest({
         method: 'POST',
-        url: 'http://localhost:8000/students',
+        url: `http://localhost:8000/students`,
         body: {forenames, lastname, email, phoneMobile, promotion},
-        json: true
-    }
-
-    const rq = new Promise((done, reject) => {
-        request(options, (error, response, body) => {
-            if (error) return reject(error);
-            done(body);
-        });
     });
 
     return {
