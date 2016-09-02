@@ -16,7 +16,7 @@ class PromotionView extends Component {
 
         return (
             <div>
-                YEARS - BEACONS - STATISTICS
+                YEARS - STATISTICS
 
                 <h2>Étudiants</h2>
                 <StudentList students={this.props.promotions.selected.students}/>
@@ -25,10 +25,6 @@ class PromotionView extends Component {
                 <h2>Matières</h2>
                 <CourseList courses={this.props.promotions.selected.courses}/>
                 <CourseNew promotion={this.props.promotions.selected}/>
-
-                <h2>Beacons</h2>
-                <BeaconList beacons={this.props.promotions.selected.beacons}/>
-                <BeaconNew promotion={this.props.promotions.selected}/>
             </div>
         );
     }

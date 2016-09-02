@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
+import * as actions from '../actions';
 import Promotions from '../containers/promotions';
 import Students from '../containers/students';
 
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
             <div>
                 <ul>
+                    <li><button onClick={() => this.props.logout()}>LOGOUT</button></li>
                     <li><Link to="/">HOME</Link></li>
                     <li><Link to="/promotions">PROMOTIONS</Link></li>
                     <li><Link to="/beacons">BEACONS</Link></li>
@@ -21,3 +24,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default connect(null, actions)(App);

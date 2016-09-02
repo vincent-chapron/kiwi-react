@@ -7,10 +7,11 @@ import Promotion from './containers/promotion_view';
 import Promotions from './containers/promotions_view';
 import Student from './containers/student_view';
 
-import {PromotionView} from './containers/promotions'
+import RequireAuthentication from './containers/authentication/required';
+import {PromotionView} from './containers/promotions';
 
 export default (
-    <Route path="/" component={App}>
+    <Route path="/" component={RequireAuthentication(App)}>
         <Route path="beacons" component={Beacons}/>
         <Route path="promotions" component={Promotions}/>
         <Route path="_promotions/:id" component={Promotion}/>
