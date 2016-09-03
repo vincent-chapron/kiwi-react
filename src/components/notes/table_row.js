@@ -15,9 +15,9 @@ class NoteTableRow extends Component {
         return (
             <TableRow>
                 <TableRowColumn>{note.name}</TableRowColumn>
-                <TableRowColumn>{(note.statistics) ? note.statistics.min : '-'}</TableRowColumn>
-                <TableRowColumn>{(note.statistics) ? note.statistics.average : '-'}</TableRowColumn>
-                <TableRowColumn>{(note.statistics) ? note.statistics.max : '-'}</TableRowColumn>
+                <TableRowColumn>{(note.statistics && note.statistics.length != 0) ? note.statistics.min : '-'}</TableRowColumn>
+                <TableRowColumn>{(note.statistics && note.statistics.length != 0) ? note.statistics.average : '-'}</TableRowColumn>
+                <TableRowColumn>{(note.statistics && note.statistics.length != 0) ? note.statistics.max : '-'}</TableRowColumn>
             </TableRow>
         );
     }

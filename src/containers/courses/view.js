@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from '../../actions';
-import {NoteTable} from '../../components/notes';
+import {NoteTable, NoteNew} from '../../components/notes';
 
 class CourseView extends Component {
     componentWillMount() {
@@ -20,6 +20,7 @@ class CourseView extends Component {
             <div>
                 <h2>{this.props.courses.selected.name}</h2>
                 <NoteTable notes={this.props.courses.selected.notes}/>
+                <NoteNew course={this.props.courses.selected}/>
             </div>
         );
     }
