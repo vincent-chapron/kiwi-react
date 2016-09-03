@@ -20,8 +20,11 @@ class App extends Component {
     render() {
         return (
             <div>
-                <AppBar showMenuIconButton={false}
-                        title="Kiwi"
+                <AppBar title="Kiwi"
+                        style={{position: 'fixed'}}
+                        iconElementLeft={
+                            <Avatar src="/img/logo-kiwi.svg" size={45}/>
+                        }
                         iconElementRight={
                             <IconMenu
                                 iconButtonElement={
@@ -32,13 +35,13 @@ class App extends Component {
                             >
                                 <MenuItem primaryText="Sign out" onTouchTap={() => this.props.logout()} />
                             </IconMenu>
-                        }/>
+                        } />
                 <Drawer open={true} containerStyle={{top:'64px'}}>
                     <MenuItem containerElement={<Link to="/promotions"/>}>Promotions</MenuItem>
                     <MenuItem containerElement={<Link to="/beacons"/>}>Beacons</MenuItem>
-                    <MenuItem containerElement={<Link to="/materiels"/>}>Matériel</MenuItem>
+                    <MenuItem containerElement={<Link to="/materiels"/>}>Matériels</MenuItem>
                 </Drawer>
-                <div style={{paddingLeft: '260px'}}>
+                <div style={{paddingLeft: '260px', paddingTop: '64px'}}>
                     {this.props.children}
                 </div>
             </div>
