@@ -11,15 +11,16 @@ import RequireAuthentication from './containers/authentication/required';
 import {PromotionView} from './containers/promotions';
 import {CourseView} from './containers/courses';
 import {StudentView} from './containers/students';
+import {YearView} from './containers/years';
 
 export default (
     <Route path="/" component={RequireAuthentication(App)}>
         <Route path="promotions/:id" component={PromotionView}/>
         <Route path="courses/:id" component={CourseView}/>
         <Route path="students/:id" component={StudentView}/>
+        <Route path="years/:id" component={YearView}/>
 
         <Route path="beacons" component={Beacons}/>
         <Route path="promotions" component={Promotions}/>
-        <Route path="_promotions/:id" component={Promotion}/>
     </Route>
 );

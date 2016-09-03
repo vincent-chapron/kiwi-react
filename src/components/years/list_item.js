@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
 import {ListItem} from 'material-ui/List';
@@ -12,6 +13,7 @@ class YearListItem extends Component {
 
         return (
             <ListItem
+                containerElement={<Link to={`/years/${year.id}`}/>}
                 primaryText={year.name}/>
         );
     }
