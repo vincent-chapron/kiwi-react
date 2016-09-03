@@ -15,6 +15,17 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 injectTapEventPlugin();
 
+Date.prototype.ddmmyyyy = function(separator = "/") {
+    var mm = this.getMonth() + 1;
+    var dd = this.getDate();
+
+    return [
+        dd < 10 ? `0${dd}` : dd,
+        mm < 10 ? `0${mm}` : mm,
+        this.getFullYear()
+    ].join(separator);
+};
+
 ReactDOM.render(
     <MuiThemeProvider>
         <Provider store={createStoreWithMiddleware(reducers)}>

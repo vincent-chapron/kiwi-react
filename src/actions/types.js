@@ -25,3 +25,4 @@ export const SET_YEAR = "SET_YEAR";
 
 export const GET_STUDENT_API = "GET_STUDENT_API";
 export const POST_STUDENT_API = "POST_STUDENT_API";
+export const CLEAR_STUDENT = "CLEAR_STUDENT";

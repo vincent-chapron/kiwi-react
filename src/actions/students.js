@@ -3,8 +3,15 @@ import {AuthenticatedRequest} from '../api/request';
 
 import {
     GET_STUDENT_API,
-    POST_STUDENT_API
+    POST_STUDENT_API,
+    CLEAR_STUDENT,
 } from './types';
+
+export function clearStudent() {
+    return {
+        type: CLEAR_STUDENT
+    }
+}
 
 export function getStudentAPI(uuid) {
     const rq = AuthenticatedRequest({
