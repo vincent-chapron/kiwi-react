@@ -26,6 +26,35 @@ Date.prototype.ddmmyyyy = function(separator = "/") {
     ].join(separator);
 };
 
+Date.prototype.yyyymmdd = function(separator = "-") {
+    var mm = this.getMonth() + 1;
+    var dd = this.getDate();
+
+    return [
+        this.getFullYear(),
+        mm < 10 ? `0${mm}` : mm,
+        dd < 10 ? `0${dd}` : dd,
+    ].join(separator);
+};
+
+Date.prototype.yyyymmdd = function(separator = "-") {
+    var mm = this.getMonth() + 1;
+    var dd = this.getDate();
+
+    return [
+        this.getFullYear(),
+        mm < 10 ? `0${mm}` : mm,
+        dd < 10 ? `0${dd}` : dd,
+    ].join(separator);
+};
+
+Date.prototype.hhmm = function(separator = ":") {
+    var hh = this.getHours();
+    var mm = this.getMinutes();
+
+    return [(hh < 10 ? '0' : '') + hh, (mm < 10 ? '0' : '') + mm].join(separator);
+};
+
 ReactDOM.render(
     <MuiThemeProvider>
         <Provider store={createStoreWithMiddleware(reducers)}>

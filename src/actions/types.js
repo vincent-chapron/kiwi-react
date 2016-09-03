@@ -13,6 +13,8 @@ export const GET_COURSE_API = "GET_COURSE_API";
 export const POST_COURSE_API = "POST_COURSE_API";
 export const CLEAR_COURSE = "CLEAR_COURSE";
 
+export const POST_EXCEPTION_API = "POST_EXCEPTION_API";
+
 export const GET_COURSE_NOTES_API = "GET_COURSE_NOTES_API";
 export const POST_NOTE_API = "POST_NOTE_API";
 

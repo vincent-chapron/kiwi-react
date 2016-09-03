@@ -6,7 +6,7 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 
 import * as actions from '../../actions';
 import {PeriodTable} from '../../components/periods';
-import {ExceptionTable} from '../../components/exceptions';
+import {ExceptionTable, ExceptionNew} from '../../components/exceptions';
 
 class YearView extends Component {
     componentWillMount() {
@@ -46,6 +46,7 @@ class YearView extends Component {
 
                 <h4>Exceptions</h4>
                 <ExceptionTable exceptions={year.exceptions}/>
+                <ExceptionNew year={year}/>
             </div>
         );
     }

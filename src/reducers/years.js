@@ -2,6 +2,7 @@ import {
     SET_YEAR,
     CLEAR_YEAR,
     GET_YEAR_API,
+    POST_EXCEPTION_API,
 } from '../actions/types'
 
 const INITIALE_STATE = {
@@ -17,6 +18,13 @@ export default function (state = INITIALE_STATE, action) {
             return INITIALE_STATE;
         case GET_YEAR_API:
             return {...state, selected: action.payload};
+        case POST_EXCEPTION_API:
+            if (state.selected) {
+                const exceptions = [...state.selected.exceptions, action.payload];
+                const selected = {...state.selected, exceptions};
+                return {...state, selected}
+            }
+            return state;
         default:
             return state;
     }
