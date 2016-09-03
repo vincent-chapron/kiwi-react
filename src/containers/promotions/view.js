@@ -14,23 +14,26 @@ class PromotionView extends Component {
     }
 
     render() {
-        if (!this.props.promotions.selected) return null;
+        const promotion = this.props.promotions.selected;
+        if (!promotion) return null;
 
         return (
             <div>
-                <h2>Statistiques</h2>
+                <h2>{promotion.name}</h2>
+
+                <h4>Statistiques</h4>
                 <PromotionStatistics statistics={this.props.promotions.statistics}/>
 
-                <h2>Étudiants</h2>
-                <StudentList students={this.props.promotions.selected.students}/>
-                <StudentNew promotion={this.props.promotions.selected}/>
+                <h4>Étudiants</h4>
+                <StudentList students={promotion.students}/>
+                <StudentNew promotion={promotion}/>
 
-                <h2>Matières</h2>
-                <CourseList courses={this.props.promotions.selected.courses}/>
-                <CourseNew promotion={this.props.promotions.selected}/>
+                <h4>Matières</h4>
+                <CourseList courses={promotion.courses}/>
+                <CourseNew promotion={promotion}/>
 
-                <h2>Années</h2>
-                <YearList years={this.props.promotions.selected.years}/>
+                <h4>Années</h4>
+                <YearList years={promotion.years}/>
             </div>
         );
     }
