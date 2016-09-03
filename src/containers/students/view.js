@@ -34,7 +34,7 @@ class StudentView extends Component {
                     <small> - <Link to={`/promotions/${student.promotion.id}`}>{student.promotion.name}</Link></small>
                 </h2>
 
-                TODO: DETAILS
+                TODO: STATUS - DETAILS
 
                 <h3>Stages & Alternances</h3>
                 <InternshipTable internships={student.internships}/>
