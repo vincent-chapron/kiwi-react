@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import Avatar from 'material-ui/Avatar';
+import {teal300} from 'material-ui/styles/colors';
+
+
 import * as actions from '../actions';
 import Promotions from '../containers/promotions';
 import Students from '../containers/students';
@@ -10,14 +20,25 @@ class App extends Component {
     render() {
         return (
             <div>
-                <ul>
-                    <li><button onClick={() => this.props.logout()}>LOGOUT</button></li>
-                    <li><Link to="/">HOME</Link></li>
-                    <li><Link to="/promotions">PROMOTIONS</Link></li>
-                    <li><Link to="/beacons">BEACONS</Link></li>
-                    <li><Link to="/materiels">MATÉRIELS</Link></li>
-                </ul>
-                <div>
+                <AppBar showMenuIconButton={false}
+                        title="Kiwi"
+                        iconElementRight={
+                            <IconMenu
+                                iconButtonElement={
+                                    <IconButton><MoreVertIcon /></IconButton>
+                                }
+                                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                            >
+                                <MenuItem primaryText="Sign out" onTouchTap={() => this.props.logout()} />
+                            </IconMenu>
+                        }/>
+                <Drawer open={true} containerStyle={{top:'64px'}}>
+                    <MenuItem containerElement={<Link to="/promotions"/>}>Promotions</MenuItem>
+                    <MenuItem containerElement={<Link to="/beacons"/>}>Beacons</MenuItem>
+                    <MenuItem containerElement={<Link to="/materiels"/>}>Matériel</MenuItem>
+                </Drawer>
+                <div style={{paddingLeft: '260px'}}>
                     {this.props.children}
                 </div>
             </div>
