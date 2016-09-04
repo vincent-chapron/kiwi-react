@@ -5,8 +5,8 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': 'production',
-                'API_ENDPOINT': 'api.kiwi.chapron.io',
+                'NODE_ENV': JSON.stringify('production'),
+                'API_ENDPOINT': JSON.stringify('http://api.kiwi.chapron.io'),
             }
         })
     ],
