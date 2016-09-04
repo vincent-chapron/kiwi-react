@@ -18,6 +18,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
+        noParse: /node_modules\/json-schema\/lib\/validate\.js/,
         loaders: [{
             exclude: /node_modules/,
             loader: 'babel',
