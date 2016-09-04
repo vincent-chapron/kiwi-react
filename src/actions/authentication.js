@@ -1,8 +1,7 @@
 import request from 'request';
 import jwt_decode from 'jwt-decode';
 
-const API_ENDPOINT = "http://localhost:8000";
-
+import {API_ENDPOINT} from '../config';
 import {
     AUTHENTICATION_LOGIN,
     AUTHENTICATION_LOGOUT,

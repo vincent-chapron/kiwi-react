@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     GET_PROMOTION_COURSES_API,
     POST_COURSE_API,
@@ -16,7 +15,7 @@ export function clearCourse() {
 
 export function getPromotionCoursesAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/promotions/${uuid}/courses`
+        url: `${API_ENDPOINT}/promotions/${uuid}/courses`
     });
 
     return {
@@ -28,7 +27,7 @@ export function getPromotionCoursesAPI(uuid) {
 
 export function getCourseAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/courses/${uuid}`
+        url: `${API_ENDPOINT}/courses/${uuid}`
     });
 
     return {
@@ -40,7 +39,7 @@ export function getCourseAPI(uuid) {
 export function postCourseAPI({name, promotion}) {
     const rq = AuthenticatedRequest({
         method: 'POST',
-        url: `http://localhost:8000/courses`,
+        url: `${API_ENDPOINT}/courses`,
         body: {name, promotion}
     });
 

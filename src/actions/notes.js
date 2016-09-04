@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     GET_COURSE_NOTES_API,
     POST_NOTE_API,
@@ -8,7 +7,7 @@ import {
 
 export function getCourseNotesAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/courses/${uuid}/notes`
+        url: `${API_ENDPOINT}/courses/${uuid}/notes`
     });
 
     return {
@@ -20,7 +19,7 @@ export function getCourseNotesAPI(uuid) {
 export function postNoteAPI({name, base = 20, scale = {note: 20}, course}) {
     const rq = AuthenticatedRequest({
         method: 'POST',
-        url: `http://localhost:8000/notes`,
+        url: `${API_ENDPOINT}/notes`,
         body: {name, base, scale, course}
     });
 

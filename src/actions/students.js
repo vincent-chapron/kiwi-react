@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     GET_STUDENT_API,
     POST_STUDENT_API,
@@ -15,7 +14,7 @@ export function clearStudent() {
 
 export function getStudentAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/students/${uuid}`
+        url: `${API_ENDPOINT}/students/${uuid}`
     });
 
     return {
@@ -27,7 +26,7 @@ export function getStudentAPI(uuid) {
 export function postStudentAPI({forenames, lastname, email, phoneMobile, promotion}) {
     const rq = AuthenticatedRequest({
         method: 'POST',
-        url: `http://localhost:8000/students`,
+        url: `${API_ENDPOINT}/students`,
         body: {forenames, lastname, email, phoneMobile, promotion},
     });
 

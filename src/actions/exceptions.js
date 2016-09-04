@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     POST_EXCEPTION_API,
 } from './types';
@@ -8,7 +7,7 @@ import {
 export function postExceptionAPI(params) {
     const rq = AuthenticatedRequest({
         method: 'POST',
-        url: `http://localhost:8000/exceptions`,
+        url: `${API_ENDPOINT}/exceptions`,
         body: params
     });
 

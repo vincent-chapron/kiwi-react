@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     SET_PROMOTION,
     GET_PROMOTION_API,
@@ -17,7 +16,7 @@ export function setPromotion(promotion) {
 
 export function getPromotionsAPI() {
     const rq = AuthenticatedRequest({
-        url: "http://localhost:8000/promotions"
+        url: `${API_ENDPOINT}/promotions`
     });
 
     return {
@@ -28,7 +27,7 @@ export function getPromotionsAPI() {
 
 export function getPromotionAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/promotions/${uuid}`
+        url: `${API_ENDPOINT}/promotions/${uuid}`
     });
 
     return {
@@ -39,7 +38,7 @@ export function getPromotionAPI(uuid) {
 
 export function getPromotionStatisticsAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/promotions/${uuid}/statistics`
+        url: `${API_ENDPOINT}/promotions/${uuid}/statistics`
     });
 
     return {

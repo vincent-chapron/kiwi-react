@@ -1,4 +1,5 @@
 import {AuthenticatedRequest} from '../api/request';
+import {API_ENDPOINT} from '../config';
 import {
     SET_YEAR,
     CLEAR_YEAR,
@@ -20,7 +21,7 @@ export function clearYear() {
 
 export function getYearAPI(uuid) {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/years/${uuid}`
+        url: `${API_ENDPOINT}/years/${uuid}`
     });
 
     return {

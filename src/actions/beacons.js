@@ -1,6 +1,5 @@
-import request from 'request';
 import {AuthenticatedRequest} from '../api/request';
-
+import {API_ENDPOINT} from '../config';
 import {
     GET_BEACONS_API,
     POST_BEACON_API,
@@ -9,7 +8,7 @@ import {
 
 export function getBeaconsAPI() {
     const rq = AuthenticatedRequest({
-        url: `http://localhost:8000/beacons`
+        url: `${API_ENDPOINT}/beacons`
     });
 
     return {
@@ -21,7 +20,7 @@ export function getBeaconsAPI() {
 export function postBeaconAPI({name, secureUuid}) {
     const rq = AuthenticatedRequest({
         method: 'POST',
-        url: `http://localhost:8000/beacons`,
+        url: `${API_ENDPOINT}/beacons`,
         body: {name, secureUuid}
     });
 
@@ -34,7 +33,7 @@ export function postBeaconAPI({name, secureUuid}) {
 export function patchBeaconInPromotionAPI(promotion, beacon) {
     const rq = AuthenticatedRequest({
         method: 'PATCH',
-        url: `http://localhost:8000/promotions/${promotion}/beacons/${beacon}`,
+        url: `${API_ENDPOINT}/promotions/${promotion}/beacons/${beacon}`,
         body: {name, secureUuid}
     });
 
