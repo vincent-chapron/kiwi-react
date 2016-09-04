@@ -19,10 +19,10 @@ class ExceptionTableRow extends Component {
                 <TableRowColumn>{start_at.ddmmyyyy()}</TableRowColumn>
                 <TableRowColumn>{end_at.ddmmyyyy()}</TableRowColumn>
                 <TableRowColumn>
-                    {exception.start_arrived_time.replace(/:00$/, '')} - {exception.end_arrived_time.replace(/:00$/, '')}
+                    {exception.start_arrived_time.replace(/(\d{2}:\d{2}):00$/, '$1')} - {exception.end_arrived_time.replace(/(\d{2}:\d{2}):00$/, '$1')}
                 </TableRowColumn>
                 <TableRowColumn>
-                    {exception.start_left_time.replace(/:00$/, '')} - {exception.end_left_time.replace(/:00$/, '')}
+                    {exception.start_left_time.replace(/(\d{2}:\d{2}):00$/, '$1')} - {exception.end_left_time.replace(/(\d{2}:\d{2}):00$/, '$1')}
                 </TableRowColumn>
             </TableRow>
         );

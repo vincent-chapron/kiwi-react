@@ -20,10 +20,10 @@ class PeriodTableRow extends Component {
                 <TableRowColumn>{start_at.ddmmyyyy()}</TableRowColumn>
                 <TableRowColumn>{end_at.ddmmyyyy()}</TableRowColumn>
                 <TableRowColumn>
-                    {period.start_arrived_time.replace(/:00$/, '')} - {period.end_arrived_time.replace(/:00$/, '')}
+                    {period.start_arrived_time.replace(/(\d{2}:\d{2}):00$/, '$1')} - {period.end_arrived_time.replace(/(\d{2}:\d{2}):00$/, '$1')}
                 </TableRowColumn>
                 <TableRowColumn>
-                    {period.start_left_time.replace(/:00$/, '')} - {period.end_left_time.replace(/:00$/, '')}
+                    {period.start_left_time.replace(/(\d{2}:\d{2}):00$/, '$1')} - {period.end_left_time.replace(/(\d{2}:\d{2}):00$/, '$1')}
                 </TableRowColumn>
             </TableRow>
         );
