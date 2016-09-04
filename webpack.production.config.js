@@ -32,5 +32,11 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: './public'
+    },
+    node: {
+        console: true,
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
     }
 };
