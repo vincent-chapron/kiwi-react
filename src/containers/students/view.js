@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions';
 import {InternshipTable} from '../../components/internships';
 import {ResultTable} from '../../components/results';
+import {PresenceNew} from '../../components/presences';
 
 class StudentView extends Component {
     componentWillMount() {
@@ -32,9 +33,9 @@ class StudentView extends Component {
                 <h2>
                     {student.fullname}
                     <small> - <Link to={`/promotions/${student.promotion.id}`}>{student.promotion.name}</Link></small>
+                    <small> - {student.status}</small>
                 </h2>
-
-                TODO: STATUS - DETAILS
+                <PresenceNew student={student} />
 
                 <h3>Stages & Alternances</h3>
                 <InternshipTable internships={student.internships}/>
