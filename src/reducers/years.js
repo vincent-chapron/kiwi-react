@@ -3,6 +3,7 @@ import {
     CLEAR_YEAR,
     GET_YEAR_API,
     POST_EXCEPTION_API,
+    DELETE_EXCEPTION_API,
 } from '../actions/types'
 
 const INITIALE_STATE = {
@@ -21,6 +22,15 @@ export default function (state = INITIALE_STATE, action) {
         case POST_EXCEPTION_API:
             if (state.selected) {
                 const exceptions = [...state.selected.exceptions, action.payload];
+                const selected = {...state.selected, exceptions};
+                return {...state, selected}
+            }
+            return state;
+        case DELETE_EXCEPTION_API:
+            if (state.selected) {
+                const exceptions = state.selected.exceptions.filter(exception => {
+                    return !(exception.id == action.payload.id)
+                });
                 const selected = {...state.selected, exceptions};
                 return {...state, selected}
             }

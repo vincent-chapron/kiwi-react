@@ -21,6 +21,7 @@ class ExceptionTable extends Component {
                             <TableHeaderColumn>FIN</TableHeaderColumn>
                             <TableHeaderColumn>{"CRÉNAUX D'ARRIVÉE"}</TableHeaderColumn>
                             <TableHeaderColumn>CRÉNAUX DE DÉPART</TableHeaderColumn>
+                            <TableHeaderColumn>ACTION</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody displaySelectAll={false} adjustForCheckbox={false} displayRowCheckbox={false}>
