@@ -22,7 +22,7 @@ class PromotionView extends Component {
                 <h2>{promotion.name}</h2>
 
                 <h4>Statistiques</h4>
-                <PromotionStatistics statistics={this.props.promotions.statistics}/>
+                <PromotionStatistics promotion={promotion} statistics={this.props.promotions.statistics}/>
 
                 <h4>Étudiants</h4>
                 <StudentList students={promotion.students}/>

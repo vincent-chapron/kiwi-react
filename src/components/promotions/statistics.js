@@ -7,7 +7,7 @@ class PromotionStatistics extends Component {
     componentWillMount() {
         const WS_ENDPOINT = process.env.WS_ENDPOINT || "ws://localhost:8001";
         const ws = new Ws(`${WS_ENDPOINT}/websocket`);
-        ws.On("statistics", statistics => this.props.setStatisticsWebsocket(statistics))
+        ws.On(`statistics_${this.props.promotion.id}`, statistics => this.props.setStatisticsWebsocket(statistics))
     }
 
     render() {
