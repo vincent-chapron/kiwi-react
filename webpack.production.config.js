@@ -7,6 +7,7 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
                 'API_ENDPOINT': JSON.stringify('http://api.kiwi.chapron.io'),
+                'WS_ENDPOINT': JSON.stringify('ws://websocket.kiwi.chapron.io'),
             }
         })
     ],

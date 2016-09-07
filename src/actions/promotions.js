@@ -5,7 +5,15 @@ import {
     GET_PROMOTION_API,
     GET_PROMOTIONS_API,
     GET_PROMOTION_STATISTICS_API,
+    SET_STATISTICS_WS,
 } from './types';
+
+export function setStatisticsWebsocket(statistics) {
+    return {
+        type: SET_STATISTICS_WS,
+        payload: statistics
+    }
+}
 
 export function setPromotion(promotion) {
     return {

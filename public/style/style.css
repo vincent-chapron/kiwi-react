@@ -9,3 +9,15 @@ img {max-width: 100%;}
     transform: translateX(-50%) translateY(-50%);
 }
 .authentication form .authentication-logo {max-width: 50%; margin: 0 auto;}
+
+.statistics {width: 100%; height: 200px; position: relative;}
+.statistics .present {background: green; width: 25%; position: absolute; bottom: 0; left: 0; transition: height 200ms ease;}
+.statistics .absent {background: red; width: 25%; position: absolute; bottom: 0; left: 25%; transition: height 200ms ease;}
+.statistics .late {background: orange; width: 25%; position: absolute; bottom: 0; left: 50%; transition: height 200ms ease;}
+.statistics .waiting {background: lightgrey; width: 25%; position: absolute; bottom: 0; left: 75%; transition: height 200ms ease;}
+
+.statistics_count {position: relative; width: 100%; height: 20px; font-variant: small-caps; color: lightgrey;}
+.statistics_count .present {width: 25%; position: absolute; bottom: 0; left: 0; text-align: center;}
+.statistics_count .absent {width: 25%; position: absolute; bottom: 0; left: 25%; text-align: center;}
+.statistics_count .late {width: 25%; position: absolute; bottom: 0; left: 50%; text-align: center;}
+.statistics_count .waiting {width: 25%; position: absolute; bottom: 0; left: 75%; text-align: center;}

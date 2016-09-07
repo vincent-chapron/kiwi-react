@@ -5,7 +5,8 @@ import {
     GET_PROMOTION_STATISTICS_API,
     POST_COURSE_API,
     PUT_BEACON_IN_PROMOTION_API,
-    POST_STUDENT_API
+    POST_STUDENT_API,
+    SET_STATISTICS_WS,
 } from '../actions/types'
 
 const INITIALE_STATE = {
@@ -25,6 +26,8 @@ export default function (state = INITIALE_STATE, action) {
             return {...state, statistics: action.payload}
         case GET_PROMOTIONS_API:
             return {...state, all: action.payload}
+        case SET_STATISTICS_WS:
+            return {...state, statistics: JSON.parse(action.payload)};
         case POST_COURSE_API:
             if (state.selected) {
                 const courses = [...state.selected.courses, action.payload];
